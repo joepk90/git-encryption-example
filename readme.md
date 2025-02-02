@@ -34,11 +34,4 @@ _Note: this project is for demonstrative purposes only which is why I have docuc
 ## Considerations (To Do)
 
 ### git pre commit check (bash/pre-commit-hook.sh)
-it could be worth while improving the sscript to only check for staged files, so unstaged unencrypted secrets won't prevent us from committing our changes.
-
-### encryption is not consitent
-Currently decrypting and encrypting a file will cause the file to change. This is likely due to a the encryption method using more than just the password (seed), perhaps the time?
-
-I don't think this will cause any issues because the file can just be checked out if it has had no changes. And if it has had changes, the encrypted text will have changed anyway...
-
-Eitherway, it might be nice if this "feature" was disabled, and encryting/decrytping a file always produced the same output assuming the text content is the same. 
+it could be worth while improving the script to only check for staged files, so unstaged unencrypted secrets won't prevent us from committing our changes.
