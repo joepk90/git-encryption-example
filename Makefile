@@ -6,6 +6,7 @@ bash-scripts-configure:
 	chmod +x ./bash/decrypt-file.sh
 	chmod +x ./bash/decrypt-all.sh
 	chmod +x ./bash/check-all.sh
+	chmod +x ./bash/check-staged.sh
 	chmod +x ./bash/seed.sh
 
 # configure gits precommit hook
@@ -45,3 +46,8 @@ secrets-decrypt-all:
 secrets-check-all:
 	@export SECRETS_EXT=${SECRETS_EXT} && . ./.env && \
 	bash ./bash/check-all.sh
+
+# check all staged (git) secret files are encrypted
+secrets-check-staged:
+	@export SECRETS_EXT=${SECRETS_EXT} && . ./.env && \
+	bash ./bash/check-staged.sh
