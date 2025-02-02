@@ -7,7 +7,5 @@
 # source env vars
 . ./.env 
 
-# TODO: update this script so that it only checks staged files - files that would get committed unencrypted
-
-# check all files have been encrypted
+# check all staged files have been encrypted
 ./bash/check-staged.sh
