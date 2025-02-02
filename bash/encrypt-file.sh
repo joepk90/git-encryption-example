@@ -8,7 +8,7 @@ if [[ "$file" != *.$SECRETS_EXT ]]; then
     exit 1
 fi
 
-DECRYPTED_TEXT=$(openssl aes-256-cbc -a -salt -pbkdf2 -pass pass:$ENCRYPTION_SEED -in "$file")
+DECRYPTED_TEXT=$(openssl aes-256-cbc -a -nosalt -pbkdf2 -pass pass:$ENCRYPTION_SEED -in "$file")
 echo "$DECRYPTED_TEXT" > $file
 
 echo "File encrypted"
