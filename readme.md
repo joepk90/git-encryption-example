@@ -31,7 +31,5 @@ export SECRETS_EXT="secret"
 _Note: this project is for demonstrative purposes only which is why I have docucumented the `ENCRYPTION_SEED` value in this readme._ 
 
 
-## Considerations (To Do)
-
-### git pre commit check (bash/pre-commit-hook.sh)
-it could be worth while improving the script to only check for staged files, so unstaged unencrypted secrets won't prevent us from committing our changes.
+## Consideration (To Do)
+It could be worth converting this into a package that can be imported into other repoistories.
