@@ -14,15 +14,16 @@ If you want to search all the encrypted files, there is a make command that can 
 ## Project Setup
 
 Start by configuring making the bash scripts executable:
-
-```make bash-scripts-configure```
+```
+make bash-scripts-configure
+```
 
 Then configure git pre commit hook. This will prevent unencrypted secrets from being committed:
-
-```make git-precommit-hook-configure```
+```
+make git-precommit-hook-configure
+```
 
 Create an .env file in the root directory with the following text:
-
 ```
 export ENCRYPTION_SEED="12345"
 export SECRETS_EXT="secret"
@@ -31,5 +32,28 @@ export SECRETS_EXT="secret"
 _Note: this project is for demonstrative purposes only which is why I have docucumented the `ENCRYPTION_SEED` value in this readme._ 
 
 
-## Consideration (To Do)
+## Reusing the bash scripts in seperate project
+To import the bash scripts into another project, run the following command from the other project directory, and with this project also cloned:
+```
+cp -r ../$git-encryption-example/bash ./ 
+```
+
+The `Makefile` commands can then be imported by including the following line at the top of a the other projects root Makefile:
+```
+include ./bash/Makefile
+```
+
+Then to update the other project with any updates, run the following make command:
+```
+make update-bash-scripts
+```
+
+Finally be sure to initialise the bash scripts and update the pre-commmit git hook:
+```
+make bash-scripts-configure
+make git-precommit-hook-configure
+```
+
+### Consideration (To Do)
+This is obviously quite a hacky approach to reusing the bash scripts...
 It could be worth converting this into a package that can be imported into other repoistories.
