@@ -6,10 +6,10 @@
 # checks
 is_seed_populated
 
-for file in $(find ./ -type f -path "*.$SECRETS_EXT"); do
+for file in $(get_all_secrets); do
     
     IS_ENCRYPTED=$(is_file_encrypted $file)
-    
+
     # if file is already encrypted, skip trying to encrypt the file
     if [ "$IS_ENCRYPTED" = "true" ]; then
         continue

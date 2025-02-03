@@ -83,3 +83,7 @@ if_decrypted_abort() {
     echo "Aborting! File has already been decrypted..."
     exit 1
 }
+
+get_all_secrets() {
+    find ./ -type f -path "*.$SECRETS_EXT"
+}
