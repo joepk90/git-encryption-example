@@ -1,7 +1,10 @@
 #!/bin/bash
 
-# check encryption seed has been populated
-./bash/seed.sh
+# import utils
+. ./bash/utils.sh
+
+# checks
+is_seed_populated
 
 # get a list of all staged git files
 STAGED_FILES=$(git diff --cached --name-only)

@@ -1,7 +1,10 @@
 #!/bin/bash
 
-# check encryption seed has been populated
-./bash/seed.sh
+# import utils
+. ./bash/utils.sh
+
+# checks
+is_seed_populated
 
 # check all secrets files are encrypted
 for file in $(find ./ -type f -path "*.$SECRETS_EXT"); do

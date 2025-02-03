@@ -7,7 +7,6 @@ bash-scripts-configure:
 	chmod +x ./bash/decrypt-all.sh
 	chmod +x ./bash/check-all.sh
 	chmod +x ./bash/check-staged.sh
-	chmod +x ./bash/seed.sh
 	chmod +x ./bash/utils.sh
 
 # configure gits precommit hook
