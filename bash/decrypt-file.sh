@@ -1,24 +1,15 @@
 #!/bin/bash
 
-# check encryption seed has been populated
-./bash/seed.sh
+# import utils
+. ./bash/utils.sh
 
-if [[ "$file" != *.$SECRETS_EXT ]]; then
-    echo "Error: The input file must have a .$SECRETS_EXT extension."
-    exit 1
-fi
+# checks
+is_seed_populated
+file_has_valid_extension
+if_decrypted_abort "$file"
 
 
-IS_ENCRYPTED=$(openssl aes-256-cbc -d -a -nosalt -pbkdf2 -pass pass:$ENCRYPTION_SEED -in "$file" -out /dev/null 2>/dev/null && echo "true" || echo "false")
+# decrypt the file
+decrypt_file "$file"
 
-# if file is already decrypted, skip trying to decypt the file
-if [ "$IS_ENCRYPTED" = "false" ]; then
-    echo "Aborting! File has already been decrypted..."
-    exit 1
-fi
-
-DECRYPTED_TEXT=$(openssl aes-256-cbc -d -a -nosalt -pbkdf2 -pass pass:$ENCRYPTION_SEED -in "$file")
-
-echo "$DECRYPTED_TEXT" > $file
-
-echo "File decrypted"
+echo "File decrypted."
