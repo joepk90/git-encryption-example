@@ -19,6 +19,7 @@ for file in $STAGED_FILES; do
     # if ile path does include the secrets extension, check if the file has been encrypted
     IS_ENCRYPTED=$(is_file_encrypted $file)
 
+
     if [ "$IS_ENCRYPTED" = "false" ]; then
         echo "ERROR: Some staged files are not encrypted or the decryption failed."
         echo "The first files found was: $file"
