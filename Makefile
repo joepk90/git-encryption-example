@@ -8,6 +8,7 @@ bash-scripts-configure:
 	chmod +x ./bash/check-all.sh
 	chmod +x ./bash/check-staged.sh
 	chmod +x ./bash/seed.sh
+	chmod +x ./bash/utils.sh
 
 # configure gits precommit hook
 # it must be renamed to pre-commit in order for git to use it.
