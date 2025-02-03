@@ -87,3 +87,14 @@ if_decrypted_abort() {
 get_all_secrets() {
     find ./ -type f -path "*.$SECRETS_EXT"
 }
+
+file_is_secret() {
+    FILE=$1
+
+     # if file path does not include the secrets extension, continue to the next item
+    if [[ "$FILE" != *"$SECRETS_EXT"* ]]; then
+        echo "false"
+    else
+        echo "true"
+    fi
+}
