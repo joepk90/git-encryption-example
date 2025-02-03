@@ -1,3 +1,5 @@
+PROJECT_NAME=git-encryption-example
+
 # make bash scripts executable
 bash-scripts-configure:
 	# chmod +x ./bash/*
@@ -51,3 +53,11 @@ secrets-check-all:
 secrets-check-staged:
 	@export SECRETS_EXT=${SECRETS_EXT} && . ./.env && \
 	bash ./bash/check-staged.sh
+
+# TODO rename bash directory to encrypt?
+# this is a tempoary command, designed to be used on other projects using these bash scripts
+# this command is not meant to be used on this (git-encryption-example) project
+update-bash-scripts:
+	rm -rf ./bash/*
+	cp -r ../${PROJECT_NAME}/bash ${PWD}/bash 
+	rm ./bash/readme.md
