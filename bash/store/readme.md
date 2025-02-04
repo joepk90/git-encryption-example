@@ -1,0 +1,2 @@
+The store directoy is used to persists lists of secret files to be used across mutliple commands.
+This data is not particularly valuable - deleting it should not cause any problems, except for leaving a lot of files decrypted/encrypted.
