@@ -13,9 +13,8 @@ bash-scripts-configure:
 
 # configure gits precommit hook
 # it must be renamed to pre-commit in order for git to use it.
-git-precommit-hook-configure:
-	@cp ./bash/pre-commit-hook.sh .git/hooks/pre-commit
-	@chmod +x .git/hooks/pre-commit
+git-configure-hooks:
+	. ./bash/git-configure-hooks.sh
 
 # this command currently is not used
 # TODO: work out how to reuse it in all the other commands

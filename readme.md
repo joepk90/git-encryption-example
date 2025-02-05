@@ -20,7 +20,7 @@ make bash-scripts-configure
 
 Then configure git pre commit hook. This will prevent unencrypted secrets from being committed:
 ```
-make git-precommit-hook-configure
+make git-configure-hooks
 ```
 
 Create an .env file in the root directory with the following text:
