@@ -11,7 +11,7 @@ Blue='\033[0;34m'
 NC='\033[0m' # No Color
 BIGreen='\033[1;92m'  
 
-git_custom()
+git_wrapper()
 {
     if [[ $# -ge 1 && "$1" == "status" ]]
     then
@@ -23,6 +23,19 @@ git_custom()
     return "$return_val"
 }
 
+# Unset the git alias when sourcing the completion script
+# unalias git 2>/dev/null
+
+# Source the git-completion script
+# autoload -Uz compinit && compinit
+# if [ -f /usr/share/git/completion/git-completion.bash ]; then
+#     . /usr/share/git/completion/git-completion.bash
+# elif [ -f /etc/bash_completion.d/git ]; then
+#     . /etc/bash_completion.d/git
+# fi
+
+# Re-set the git alias
+alias git=git_wrapper
 
 printf "\n\n"
 printf "${BIGreen}Git has been initialised!${NC}\n"
