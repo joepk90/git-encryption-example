@@ -31,6 +31,12 @@ export SECRETS_EXT="secret"
 
 _Note: this project is for demonstrative purposes only which is why I have docucumented the `ENCRYPTION_SEED` value in this readme._ 
 
+Finally, run the following command to initialise extra git functionality. This is optional, but advised:
+```
+source ./bash/git-init.sh
+```
+
+_Note: changes to git will only exist in the current shell. if the shell is closed, the command will need to be run again._ 
 
 ## Reusing the bash scripts in seperate project
 To import the bash scripts into another project, run the following command from the other project directory, and with this project also cloned:

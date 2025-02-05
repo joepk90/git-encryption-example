@@ -10,11 +10,17 @@ bash-scripts-configure:
 	chmod +x ./bash/check-all.sh
 	chmod +x ./bash/check-staged.sh
 	chmod +x ./bash/utils.sh
+	chmod +x ./bash/git-init.sh
 
 # configure gits precommit hook
 # it must be renamed to pre-commit in order for git to use it.
 git-configure-hooks:
 	. ./bash/git-configure-hooks.sh
+
+# add git status functionality for current terminal session (optional)
+# initialise extended git features for the current terminal session (optional)
+git-init:
+	source ./bash/git-init.sh
 
 # this command currently is not used
 # TODO: work out how to reuse it in all the other commands
