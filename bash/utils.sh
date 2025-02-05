@@ -1,5 +1,9 @@
 #!/bin/bash
 
+export_secret_var() {
+    export SECRETS_EXT=${SECRETS_EXT} && . ./.env
+}
+
 decrypt_file_text() {
     FILE=$1
     openssl aes-256-cbc -d -a -nosalt -pbkdf2 -pass pass:$ENCRYPTION_SEED -in "$FILE"

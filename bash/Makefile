@@ -25,33 +25,27 @@ secrets-export-vars:
 # encrypt a single secret filee - example usage:
 # make secret-encrypt file="src/test/text.secret"
 secret-encrypt:
-	@export SECRETS_EXT=${SECRETS_EXT} && . ./.env && \
 	bash ./bash/encrypt-file.sh $(ARGS)
 
 # decrypt a single secret file - example usage:
 # make secret-decrypt file="src/test/text.secret"
 secret-decrypt:
-	@export SECRETS_EXT=${SECRETS_EXT} && . ./.env && \
 	bash ./bash/decrypt-file.sh $(ARGS)
 
 # encrypt all secret files
 secrets-encrypt-all:
-	@export SECRETS_EXT=${SECRETS_EXT} && . ./.env && \
 	bash ./bash/encrypt-all.sh
 	
 # decrypt all secret files
 secrets-decrypt-all:
-	@export SECRETS_EXT=${SECRETS_EXT} && . ./.env && \
 	bash ./bash/decrypt-all.sh
 
 # check all secret files are encrypted
 secrets-check-all:
-	@export SECRETS_EXT=${SECRETS_EXT} && . ./.env && \
 	bash ./bash/check-all.sh
 
 # check all staged (git) secret files are encrypted
 secrets-check-staged:
-	@export SECRETS_EXT=${SECRETS_EXT} && . ./.env && \
 	bash ./bash/check-staged.sh
 
 # TODO rename bash directory to encrypt?

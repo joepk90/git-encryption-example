@@ -3,6 +3,9 @@
 # import utils
 . ./bash/utils.sh
 
+# export environment variable
+export_secret_var
+
 # checks
 is_seed_populated
 
