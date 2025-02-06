@@ -40,7 +40,7 @@ cp -r ../$git-encryption-example/bash ./
 
 The `Makefile` commands can then be imported by including the following line at the top of a the other projects root Makefile:
 ```
-include ./bash/Makefile
+include ./bash-encrypt/Makefile
 ```
 
 Then to update the other project with any updates, run the following make command:

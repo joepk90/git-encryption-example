@@ -1,1 +1,1 @@
-include ./bash/Makefile
+include ./bash-encrypt/Makefile
