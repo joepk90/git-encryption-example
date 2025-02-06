@@ -1,5 +1,6 @@
 # Git Encryption Example
-The project uses openssl to encrypt and decrypt files.
+The project uses a [bash-encrypt](https://github.com/joepk90/bash-encryptopenssl) package to encrypt and decrypt files.
+
 The project surves as an example approach to encrypting and decrypting files that can then be stored in git.
 
 For a file to be committed, it must be encrypted. This means that for a file to be considered clean and committed, it must be encrypted.
@@ -13,7 +14,23 @@ If you want to search all the encrypted files, there is a make command that can 
 
 ## Project Setup
 
-Start by configuring making the bash scripts executable:
+Clone the repo to your project
+```
+git clone git@github.com:joepk90/bash-encrypt.git
+```
+
+Or clone it as a submodule if you want to contribute
+```
+git submodule add git@github.com:joepk90/bash-encrypt.git
+```
+
+
+imported the Makefile commmands by including the following line at the top of your projects root Makefile:
+```
+include ./bash-encrypt/Makefile
+```
+
+Initialise the project by configuring making the bash scripts executable:
 ```
 make bash-scripts-configure
 ```
@@ -33,26 +50,11 @@ _Note: this project is for demonstrative purposes only which is why I have docuc
 
 
 ## Reusing the bash scripts in seperate project
-To import the bash scripts into another project, run the following command from the other project directory, and with this project also cloned:
-```
-cp -r ../$git-encryption-example/bash ./ 
-```
 
-The `Makefile` commands can then be imported by including the following line at the top of a the other projects root Makefile:
-```
-include ./bash-encrypt/Makefile
-```
 
-Then to update the other project with any updates, run the following make command:
-```
-make update-bash-scripts
-```
 
-Finally be sure to initialise the bash scripts and update the pre-commmit git hook:
-```
-make bash-scripts-configure
-make git-precommit-hook-configure
-```
+
+
 
 ### Consideration (To Do)
 This is obviously quite a hacky approach to reusing the bash scripts...
